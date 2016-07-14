@@ -1,7 +1,7 @@
 CWAC_Rights
 ===========
 
-A rather simple permission library.
+A rather simple permission library for PHP.
 
 Description
 -----------
