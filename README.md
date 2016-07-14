@@ -45,7 +45,8 @@ What this library is not:
 * a complete solution that does not require you to do any work
 
 
-The code dates back to 2007. It's been largely unchanged ever since and is still in production use today, so I consider it mostly stable.
+The code dates back to 2007. It's been largely unchanged ever since and is still in production
+use today, so I consider it mostly stable. Tested up to PHP 7.0.4. 
 
 Usage
 -----
