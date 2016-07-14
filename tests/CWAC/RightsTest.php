@@ -1,16 +1,20 @@
 <?php
-require_once 'PHPUnit/Framework/TestCase.php';
+//require_once 'PHPUnit/Framework/TestCase.php';
 
-class RightsTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\Testcase;
+
+class RightsTest extends TestCase
 {
     protected function setUp()
     {
         require_once __DIR__ . '/../../src/CWAC/Rights.php';
-        $rights = array('admin.*',
-                        '-admin.bla',
-                        'files.open',
-                        'files.download.really',
-                        '-donotenter.*');
+        $rights = array(
+            'admin.*',
+            '-admin.bla',
+            'files.open',
+            'files.download.really',
+            '-donotenter.*'
+        );
         $user = new CWAC_Rights();
         $user->setRights($rights);
         $this->_user = $user;
@@ -43,5 +47,14 @@ class RightsTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->_user->checkRight('donotenter'), 'donotenter');
     }
 
+    /**
+     * Checking a root level results in true if there was at least one right
+     * granted below that level.
+     */
+    public function testCheckPreviousLevel()
+    {
+        $this->assertTrue($this->_user->checkRight('admin'), 'admin');
+        $this->assertTrue($this->_user->checkRight('files'), 'files');
+    }
 
 }

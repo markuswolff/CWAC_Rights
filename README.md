@@ -58,11 +58,11 @@ Usage
     );
     $user = new UserRights();
     $user->setRights($rights);
-    echo "admin.honk (assumed true): ".(int)$user->checkRight('admin.something')."\n";
-    echo 'admin.users.delete (assumed false): '.(int)$user->checkRight('admin.users.delete')."\n";
-    echo 'files.download.pdf: '.(int)$user->checkRight('files.download.really')."\n";
-    echo 'files.download.xls: '.(int)$user->checkRight('files.download.not')."\n";
-    echo 'files.open: '.(int)$user->checkRight('files.open')."\n";
+    echo "admin.honk (assumed true): ".(int)$user->checkRight('admin.something'), PHP_EOL;
+    echo 'admin.users.delete (assumed false): '.(int)$user->checkRight('admin.users.delete'), PHP_EOL;
+    echo 'files.download.pdf (assumed true): '.(int)$user->checkRight('files.download.pdf'), PHP_EOL;
+    echo 'files.download.xls (assumed false): '.(int)$user->checkRight('files.download.xls'), PHP_EOL;
+    echo 'files.open (assumed true): '.(int)$user->checkRight('files.open'), PHP_EOL;
 
 For more usage examples, see the included unit test.
 
