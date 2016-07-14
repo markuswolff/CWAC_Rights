@@ -5,13 +5,13 @@ class RightsTest extends PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        require_once '../../../library/CWAC/User/Rights.php';
+        require_once __DIR__ . '/../../src/CWAC/Rights.php';
         $rights = array('admin.*',
                         '-admin.bla',
                         'files.open',
                         'files.download.really',
                         '-donotenter.*');
-        $user = new CWAC_User_Rights();
+        $user = new CWAC_Rights();
         $user->setRights($rights);
         $this->_user = $user;
     }
@@ -43,12 +43,5 @@ class RightsTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->_user->checkRight('donotenter'), 'donotenter');
     }
 
-    public function testIncomplete()
-    {
-        // Stop here and mark this test as incomplete.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
-    }
+
 }
-?>
